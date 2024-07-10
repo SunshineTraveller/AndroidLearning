@@ -1,4 +1,7 @@
-package com.example.androidlearning
+package com.example.androidlearning.Test
+
+import android.util.Log
+import com.example.androidlearning.lmTag
 
 
 /*
@@ -13,7 +16,7 @@ package com.example.androidlearning
 class PrimaryData {
 
     fun primaryDataTest() {
-        classTest()
+//        classTest()
 //        Log.i(lmTag,switchTest(2f))
 //        Log.i(lmTag,switchTest(2.345))
 //        Log.i(lmTag,switchTest(listOf<String>("ABCDEFG")))
@@ -29,7 +32,32 @@ class PrimaryData {
 //        println(sum(2, 5))
     }
 
+/*
+泛型的使用
+* */
+    fun <A, B, C> fanxingFunc(p1: A, p2: B, p3: C) {
+
+    }
+
+
+    /*
+    * 扩展函数
+    * fun Class.testFunction() {}
+    * */
+    private fun Boy.testLaugh(str: String) {
+        Log.i(lmTag,"哈哈哈 笑死我了, 我叫 ${this.name}")
+    }
+
+    fun test(boy: Boy?): Boy? = boy?.apply {
+
+    }
+
     fun classTest() {
+
+        // 这里也是一个函数的扩展，但是没有函数名，只有函数的参数
+        var funVariable: Boy.(String, Int) -> Unit = { str, intValue ->
+            Log.i(lmTag, "emmmmm, 你传的是 $str 和 数字 $intValue")
+        }
         val jessie = Person(name = "Jessie", age = 36, gender = 2)
         jessie.sayHello()
         val john = Male(name = "John", age = 46, height = 1.8f)
@@ -38,6 +66,11 @@ class PrimaryData {
         tom.sayHello()
         val jack = Boy(name = "Jack", age = 12, height = 1.4f)
         jack.sayHello()
+        jack.testLaugh(str = "asda")
+        jack.funVariable("What the fuxx?", 5)
+        jack.apply {
+            println(jack.name)
+        }
     }
 
     fun switchTest(param: Any = UInt): String {
@@ -52,14 +85,30 @@ class PrimaryData {
         }
         return "未知类型数据 $param"
     }
+
     fun arrayTest() {
-//        val array = listOf<String>("A","B","C","D","1","2")
-//        array.forEach {
-//            Log.i(lmTag, it)
-//        }
-//        array.forEachIndexed {index,value ->
-//            Log.d(lmTag, "index = $index value = $value")
-//        }
+        val array = listOf<String>("A","B","C","D","1","2")
+
+        // 纯元素遍历
+        array.forEach {
+            Log.i(lmTag, it)
+        }
+
+        // 带索引和元素的遍历
+        array.forEachIndexed {index,value ->
+            Log.d(lmTag, "index = $index value = $value")
+        }
+
+        // 带索引的遍历
+        array.indices.forEach { index ->
+            Log.i(lmTag, "当前是 $index")
+        }
+
+        for ((index, item) in array.withIndex()) {
+            Log.i(lmTag, "元素 = $item, 索引 = $index")
+        }
+
+        Log.i(lmTag, array.joinToString())
     }
 
     fun sum(a: Int, b: Int): Double {
@@ -83,6 +132,9 @@ class PrimaryData {
     fun intLongTest() {
         val aInt = 23334
         val aLong = 23434454L
+        if (aInt == 233 || aInt.equals(2345)) {
+            println(aInt)
+        }
         println("The int value is $aInt, the long value is ${aLong}")
     }
 

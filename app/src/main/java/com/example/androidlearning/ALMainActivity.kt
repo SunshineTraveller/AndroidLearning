@@ -1,9 +1,8 @@
 package com.example.androidlearning
 
 import android.os.Bundle
-import android.os.PersistableBundle
-import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
+import com.example.androidlearning.Test.PrimaryData
 
 val lmTag: String = "LMDebug"
 
