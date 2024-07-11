@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="k_tabbar_normal_color">#99000000</color>
+    <color name="k_tabbar_select_color">#FFFB2628</color>
+</resources>
