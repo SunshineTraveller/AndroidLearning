@@ -3,6 +3,33 @@ package com.example.androidlearning.Test
 import android.util.Log
 import com.example.androidlearning.lmTag
 
+/*
+项目知识点汇总:
+1、去掉顶部标题栏的方法：
+在 AndroidManifest.xml 文件汇总找到 theme 条目，将其改成 android:theme="@style/Theme.AppCompat.Light.NoActionBar" 即可。
+
+2、ImageView 的填充模式用 scaleType 属性控制。以下是一些常用的 scaleType 选项及其效果：
+   center：保持原始大小，图片位于视图的中心。如果图片比视图大，则会裁剪图片。
+   centerCrop：缩放图片使其至少一边与视图大小匹配，并且保持图片的纵横比。超出的部分会被裁剪。
+   centerInside：缩放图片使其完全显示在视图内，并且保持图片的纵横比。如果图片比视图小，则居中显示。
+   fitCenter：缩放图片使其完全显示在视图内，并且保持图片的纵横比，居中显示。
+   fitStart：缩放图片使其完全显示在视图内，并且保持图片的纵横比，顶部对齐。
+   fitEnd：缩放图片使其完全显示在视图内，并且保持图片的纵横比，底部对齐。
+   fitXY：缩放图片以适应视图的大小，不保持图片的纵横比。
+   matrix：使用矩阵来绘制图片，可以进行任意的缩放、平移、旋转等变换。
+
+3、android:id="@+id/k_title_bar_username_contaienr" ，id 命名中，+id 才是命名，没有 + 号则为引用某个id
+4、使用 CardView 做圆角时，如果想让目标颜色带透明度，不能设置 cardview 的background，而是要设置 cardview 的 cardBackgroundColor 就OK了。
+5、TextView 中，android:gravity="center_vertical|right" 文本内容居中后可以通过 |left/right 来靠左或靠右对齐
+
+
+
+
+
+
+
+
+* */
 
 /*
 * 总结
@@ -13,7 +40,7 @@ import com.example.androidlearning.lmTag
 *
 * */
 
-class PrimaryData {
+class KotlinLearn {
 
     fun primaryDataTest() {
 //        classTest()

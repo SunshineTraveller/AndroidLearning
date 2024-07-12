@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="88dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/k_titlebar_gradient">
+
+        <!-- 用户名 -->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/k_title_bar_username_contaienr"
+            android:layout_width="78dp"
+            android:layout_height="44dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent">
+            <TextView
+                android:id="@+id/k_title_bar_username"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:text="甜豆"
+                android:gravity="center"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                android:textFontWeight="500"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintRight_toRightOf="@id/k_title_bar_username_contaienr"
+
+
+                android:maxWidth="50dp"
+                />
+            <ImageView
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+
+                android:background="@mipmap/ic_titlebar_downarrow"
+                android:layout_gravity="center_vertical"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="@id/k_title_bar_username"
+                app:layout_constraintBottom_toBottomOf="@id/k_title_bar_username"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <!-- 灵动岛 -->
+    <androidx.cardview.widget.CardView
+        android:layout_width="0dp"
+        android:layout_height="32dp"
+        app:cardBackgroundColor="#99ffffff"
+        app:cardCornerRadius="16dp"
+        app:layout_constraintLeft_toRightOf="@id/k_title_bar_username_contaienr"
+        app:layout_constraintRight_toLeftOf="@id/k_title_bar_more"
+        app:layout_constraintTop_toTopOf="@id/k_title_bar_username_contaienr"
+        app:layout_constraintBottom_toBottomOf="@id/k_title_bar_username_contaienr"
+        android:layout_marginRight="48dp"
+        android:layout_marginLeft="4dp">
+        <include
+            layout="@layout/k_dynamic_island_layout"
+            android:layout_width="match_parent"
+            android:layout_height="32dp"
+            />
+    </androidx.cardview.widget.CardView>
+
+        <!-- 右侧工具栏 -->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/k_title_bar_more"
+            android:layout_width="40dp"
+            android:layout_height="44dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent">
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:background="@mipmap/ic_titlebar_more"/>
+            <androidx.cardview.widget.CardView
+                android:layout_width="6dp"
+                android:layout_height="6dp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="5dp"
+                app:cardCornerRadius="3dp">
+                <View
+                    android:layout_width="6dp"
+                    android:layout_height="6dp"
+                    android:background="#fb2628"/>
+            </androidx.cardview.widget.CardView>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

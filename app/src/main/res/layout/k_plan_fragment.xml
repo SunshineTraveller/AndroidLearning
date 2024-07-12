@@ -4,7 +4,8 @@
     android:id="@+id/k_plan_fragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".plan.ALPlanFragment">
+    tools:context=".plan.ALPlanFragment"
+    android:layout_marginTop="88dp">
 
     <!-- TODO: Update blank fragment layout -->
     <TextView

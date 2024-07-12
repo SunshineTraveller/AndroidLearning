@@ -4,7 +4,8 @@
     android:id="@+id/k_mine_fragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".mine.ALMineFragment">
+    tools:context=".mine.ALMineFragment"
+    android:layout_marginTop="88dp">
 
     <!-- TODO: Update blank fragment layout -->
     <TextView

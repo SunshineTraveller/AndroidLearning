@@ -1,15 +1,14 @@
 package com.example.androidlearning
 
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
-import com.example.androidlearning.Test.PrimaryData
 import com.example.androidlearning.bottombar.ALTabbar
 import com.example.androidlearning.home.ALHomeFragment
 import com.example.androidlearning.mine.ALMineFragment
 import com.example.androidlearning.plan.ALPlanFragment
 import com.example.androidlearning.shop.ALShopFragment
-import com.google.android.material.bottomnavigation.BottomNavigationView
 
 val lmTag: String = "LMDebug"
 
@@ -44,6 +43,7 @@ class ALMainActivity: AppCompatActivity() {
         // 设置底部导航 tabbar
         setupBottomNavigationView()
         replaceFragment(0)
+        window.statusBarColor = android.graphics.Color.TRANSPARENT
     }
 
     // 设置底部 Tabbar

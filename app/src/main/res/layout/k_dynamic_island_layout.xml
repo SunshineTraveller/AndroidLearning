@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/k_dynamic_island"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <!-- 左侧图片 -->
+    <androidx.cardview.widget.CardView
+    android:layout_width="16dp"
+    android:layout_height="16dp"
+    android:layout_gravity="center_vertical"
+    app:cardCornerRadius="8dp"
+    android:layout_marginLeft="8dp">
+        <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/light_blue_600"/>
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="爸爸给你发来了视频通话"
+        android:textColor="#E5000000"
+        android:textSize="13sp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="12dp"
+        android:gravity="center_vertical"
+        android:textFontWeight="500"/>
+
+</LinearLayout>
