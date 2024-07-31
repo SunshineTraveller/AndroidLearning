@@ -21,6 +21,20 @@ import com.example.androidlearning.lmTag
 3、android:id="@+id/k_title_bar_username_contaienr" ，id 命名中，+id 才是命名，没有 + 号则为引用某个id
 4、使用 CardView 做圆角时，如果想让目标颜色带透明度，不能设置 cardview 的background，而是要设置 cardview 的 cardBackgroundColor 就OK了。
 5、TextView 中，android:gravity="center_vertical|right" 文本内容居中后可以通过 |left/right 来靠左或靠右对齐
+6、关于 RecyclerView:
+
+    canScrollHorizontally();//能否横向滚动
+    canScrollVertically();//能否纵向滚动
+    scrollToPosition(int position);//滚动到指定位置
+
+    setOrientation(int orientation);//设置滚动的方向
+    getOrientation();//获取滚动方向
+
+    findViewByPosition(int position);//获取指定位置的Item View
+    findFirstCompletelyVisibleItemPosition();//获取第一个完全可见的Item位置
+    findFirstVisibleItemPosition();//获取第一个可见Item的位置
+    findLastCompletelyVisibleItemPosition();//获取最后一个完全可见的Item位置
+    findLastVisibleItemPosition();//获取最后一个可见Item的位置
 
 
 

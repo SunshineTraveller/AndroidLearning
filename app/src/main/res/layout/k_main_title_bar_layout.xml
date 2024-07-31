@@ -34,7 +34,6 @@
             <ImageView
                 android:layout_width="16dp"
                 android:layout_height="16dp"
-
                 android:background="@mipmap/ic_titlebar_downarrow"
                 android:layout_gravity="center_vertical"
                 app:layout_constraintRight_toRightOf="parent"

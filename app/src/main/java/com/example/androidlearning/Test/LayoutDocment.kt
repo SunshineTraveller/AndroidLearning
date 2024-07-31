@@ -53,4 +53,9 @@ package com.example.androidlearning.Test
  android:maxWidth                         最大的宽度
  android:maxHeight                        最大的高度
 
+
+ LayoutInflater 有两个方法 .from 和 .inflate
+ from: 获取一个 LayoutInflater 对象，需要传入一个上下文 context, 通常从父视图 (parent) 中获取
+ inflate： 用于将指定的 XML 布局文件转换为对应的视图对象
+
 */
