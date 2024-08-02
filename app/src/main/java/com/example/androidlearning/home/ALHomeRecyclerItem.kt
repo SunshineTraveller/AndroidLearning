@@ -24,7 +24,7 @@ data class ALHomeBannerItem(val data: String, val images: List<String>): ALHomeL
 }
 
 // 金刚区 item
-data class ALHomeKingKongItem(val data: String): ALHomeListItem() {
+data class ALHomeKingKongItem(val data: String, val list: List<ALHomeKingkongListItem>): ALHomeListItem() {
     override val type: Int
         get() = ALHomeListItem.KingKong
     override val title: String
@@ -55,3 +55,7 @@ data class ALHomeSchduleItem(val data: String): ALHomeListItem() {
         get() = ALHomeListItem.Schedule
 }
 
+// 金刚区诗句
+data class ALHomeKingkongListItem(var imageURL: String, var title: String) {
+
+}

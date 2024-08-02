@@ -4,6 +4,7 @@ import android.view.View
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
+import androidx.recyclerview.widget.RecyclerView.Recycler
 import com.example.androidlearning.R
 import com.to.aboomy.pager2banner.Banner
 
@@ -17,8 +18,10 @@ class ALHomeBannerViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView)
 
 // 首页 金刚区
 class ALHomeKingKongViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-    // textView
-    val textView: TextView = itemView.findViewById<TextView>(R.id.k_home_kingkong_cell_textview)
+    // kingkongCell
+    val kingkongCell: ConstraintLayout = itemView as ConstraintLayout
+    // recyclerView
+    val recyclerView: RecyclerView = itemView.findViewById(R.id.k_home_kingkong_recyclerview)
 }
 
 // 首页 跑马灯

@@ -8,7 +8,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.LinearLayout
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.DataSource
@@ -90,8 +92,9 @@ class ALHomeRecyclerAdapter(private val itemList: List<ALHomeListItem>): Recycle
 
             // 金刚区
             ALHomeListItem.KingKong -> {
-                val kingkongViewHolder = holder as ALHomeKingKongViewHolder
-                kingkongViewHolder.textView.text = itemData.title
+                val viewHolder = holder as ALHomeKingKongViewHolder
+                val item = itemList[position] as ALHomeKingKongItem
+                setupKingkong(viewHolder, listItem = item.list)
             }
 
             // 跑马灯
@@ -123,63 +126,26 @@ class ALHomeRecyclerAdapter(private val itemList: List<ALHomeListItem>): Recycle
 
         val adapter = ALHomeBannerImageAdapter(images)
         bannerView.setIndicator(indicator).adapter = adapter
-        bannerView.setPageMargin(16, 16).addPageTransformer(ScaleInTransformer())
-//        bannerView.addPageTransformer(OverlapSliderTransformer(bannerView.getViewPager2().getOrientation(), 0.25f, 0, 1,0))
+        bannerView.setPageMargin(32, 32).addPageTransformer(ScaleInTransformer())
+    }
+
+    private fun setupKingkong(viewHolder: ALHomeKingKongViewHolder, listItem: List<ALHomeKingkongListItem>) {
+
+        // layoutManager
+        val linearLayoutManager = LinearLayoutManager(viewHolder.kingkongCell.context)
+        linearLayoutManager.orientation = RecyclerView.HORIZONTAL
+        viewHolder.recyclerView.layoutManager = linearLayoutManager
+
+        // Adapter
+        val adapter = ALHomeKingkongAdapter(dataSource = listItem)
+        viewHolder.recyclerView.adapter = adapter
+
+        // itemDecoration
+        val itemDecoration = ALKingkongItemDecoration(left = 0, right = 12, top = 16, bottom = 16)
+        viewHolder.recyclerView.addItemDecoration(itemDecoration)
     }
 
 }
 
-
-// Banner Adapter
-class ALHomeBannerImageAdapter(private val images: List<String>): RecyclerView.Adapter<ALHomeBannerImageAdapter.ImageViewHolder>() {
-
-    inner class ImageViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
-        val imageView: ImageView = itemView.findViewById(R.id.k_home_banner_imageview)
-    }
-
-    override fun onCreateViewHolder(
-        parent: ViewGroup,
-        viewType: Int
-    ): ImageViewHolder {
-        val view = LayoutInflater.from(parent.context)
-            .inflate(R.layout.k_home_banner_imageview_layout, parent, false)
-        return ImageViewHolder(view)
-    }
-
-    override fun getItemCount(): Int {
-        return images.count()
-    }
-
-    override fun onBindViewHolder(holder: ImageViewHolder, position: Int) {
-        Glide.with(holder.itemView.context)
-            .load(images[position])
-            .listener(object : RequestListener<Drawable> {
-                override fun onLoadFailed(
-                   e: GlideException?,
-                    model: Any?,
-                    target: com.bumptech.glide.request.target.Target<Drawable?>,
-                    isFirstResource: Boolean
-                ): Boolean {
-                    // 图片加载失败时的处理逻辑
-                    Log.i(lmTag, "图片资源加载失败 $model")
-                    return false // 返回 false 表示让 Glide 继续处理这个事件（例如显示占位符）
-                }
-
-                override fun onResourceReady(
-                    resource: Drawable,
-                    model: Any,
-                    target: com.bumptech.glide.request.target.Target<Drawable?>?,
-                    dataSource: DataSource,
-                    isFirstResource: Boolean
-                ): Boolean {
-                    Log.i(lmTag, "图片资源准备就绪 ")
-                    return false // 返回 false 表示让 Glide 继续处理这个事件（例如显示占位符）
-                }
-
-            })
-            .into(holder.imageView)
-
-    }
-}
 
 

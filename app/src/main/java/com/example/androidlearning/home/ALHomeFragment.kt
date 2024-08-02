@@ -42,14 +42,26 @@ class ALHomeFragment : Fragment() {
         homeRecyclerView.layoutManager = layoutManager
 
         // Mock 数据
+        // banner 轮播图
         val imageURLStrings = listOf<String>(
             "https://aliresource.edstars.com.cn/xpad-parent/banner/1cb62864-5ae8-4f4a-8d33-81238ad6207e-1716199271406.png",
             "https://aliresource.edstars.com.cn/xpad-parent/banner/8f577fd5-674e-4678-b7ab-d94d9cd4d43e-1718268952530.png",
             "https://aliresource.edstars.com.cn/xpad-parent/banner/1cb62864-5ae8-4f4a-8d33-81238ad6207e-1716199271406.png",
             "https://aliresource.edstars.com.cn/xpad-parent/banner/8f577fd5-674e-4678-b7ab-d94d9cd4d43e-1718268952530.png",)
+
+
+        // 金刚位数据
+        val kingkongList = listOf<ALHomeKingkongListItem>(
+            ALHomeKingkongListItem(imageURL = "https://static0.xesimg.com/baodian/parent-client/learning-toolbar/taskarrange@3x.png", title = "布置任务"),
+            ALHomeKingkongListItem(imageURL = "https://static0.xesimg.com/baodian/parent-client/learning-toolbar/xiaosilearning@3x.png", "小思伴学"),
+            ALHomeKingkongListItem(imageURL = "https://static0.xesimg.com/baodian/parent-client/learning-toolbar/learnweekly@3x.png", title = "学习周报"),
+            ALHomeKingkongListItem(imageURL = "https://static0.xesimg.com/baodian/parent-client/learning-toolbar/toolresource@3x.png", title = "工具资源"),
+            ALHomeKingkongListItem(imageURL = "https://static0.xesimg.com/baodian/parent-client/learning-toolbar/errorbook@3x.png", title = "错题本")
+        )
+
         val items = listOf<ALHomeListItem>(
             ALHomeBannerItem(data = "我是轮播", images = imageURLStrings),
-            ALHomeKingKongItem(data = "我是金刚区"),
+            ALHomeKingKongItem(data = "我是金刚区", list = kingkongList),
             ALHomeMarqueeItem(data = "我是跑马灯"),
             ALHomeWeekSumItem(data = "我是周报学情"),
             ALHomeSchduleItem(data = "sdfsf")
